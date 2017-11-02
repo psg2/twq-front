@@ -1,0 +1,16 @@
+export const CREATE = '[Category] Create';
+export const CREATE_SUCCESS = '[Category] Create Success';
+export const CREATE_FAILURE = '[Category] Create Failure';
+export const UPDATE = '[Category] Update';
+export const UPDATE_SUCCESS = '[Category] Update Success';
+export const UPDATE_FAILURE = '[Category] Update Failure';
+export const DELETE = '[Category] Delete';
+export const DELETE_SUCCESS = '[Category] Delete Success';
+export const DELETE_FAILURE = '[Category] Delete Failure';
+export const FETCH = '[Category] Load';
+export const FETCH_SUCCESS = '[Category] Fetch Success';
+export const FETCH_FAILURE = '[Category] Fetch Failure';
+export const FETCH_ALL = '[Category] Fetch All';
+export const FETCH_ALL_SUCCESS = '[Category] Fetch All Success';
+export const FETCH_ALL_FAILURE = '[Category] Fetch All Failure';
+export const SELECT = '[Category] Select';

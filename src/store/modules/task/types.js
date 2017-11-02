@@ -1,0 +1,16 @@
+export const CREATE = '[Task] Create';
+export const CREATE_SUCCESS = '[Task] Create Success';
+export const CREATE_FAILURE = '[Task] Create Failure';
+export const UPDATE = '[Task] Update';
+export const UPDATE_SUCCESS = '[Task] Update Success';
+export const UPDATE_FAILURE = '[Task] Update Failure';
+export const DELETE = '[Task] Delete';
+export const DELETE_SUCCESS = '[Task] Delete Success';
+export const DELETE_FAILURE = '[Task] Delete Failure';
+export const FETCH = '[Task] Load';
+export const FETCH_SUCCESS = '[Task] Fetch Success';
+export const FETCH_FAILURE = '[Task] Fetch Failure';
+export const FETCH_ALL = '[Task] Fetch All';
+export const FETCH_ALL_SUCCESS = '[Task] Fetch All Success';
+export const FETCH_ALL_FAILURE = '[Task] Fetch All Failure';
+export const SELECT = '[Task] Select';

@@ -1,0 +1,16 @@
+export const CREATE = '[Project] Create';
+export const CREATE_SUCCESS = '[Project] Create Success';
+export const CREATE_FAILURE = '[Project] Create Failure';
+export const UPDATE = '[Project] Update';
+export const UPDATE_SUCCESS = '[Project] Update Success';
+export const UPDATE_FAILURE = '[Project] Update Failure';
+export const DELETE = '[Project] Delete';
+export const DELETE_SUCCESS = '[Project] Delete Success';
+export const DELETE_FAILURE = '[Project] Delete Failure';
+export const FETCH = '[Project] Load';
+export const FETCH_SUCCESS = '[Project] Fetch Success';
+export const FETCH_FAILURE = '[Project] Fetch Failure';
+export const FETCH_ALL = '[Project] Fetch All';
+export const FETCH_ALL_SUCCESS = '[Project] Fetch All Success';
+export const FETCH_ALL_FAILURE = '[Project] Fetch All Failure';
+export const SELECT = '[Project] Select';

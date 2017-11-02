@@ -1,0 +1,12 @@
+{
+  "root": "dist/",
+  "https_only": true,
+  "proxies": {
+    "/api/": {
+      "origin": "https://citiboard-api.herokuapp.com/api"
+    }
+  },
+  "routes": {
+    "/**": "index.html"
+  }
+}

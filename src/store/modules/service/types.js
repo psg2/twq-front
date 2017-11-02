@@ -1,0 +1,16 @@
+export const CREATE = '[Service] Create';
+export const CREATE_SUCCESS = '[Service] Create Success';
+export const CREATE_FAILURE = '[Service] Create Failure';
+export const UPDATE = '[Service] Update';
+export const UPDATE_SUCCESS = '[Service] Update Success';
+export const UPDATE_FAILURE = '[Service] Update Failure';
+export const DELETE = '[Service] Delete';
+export const DELETE_SUCCESS = '[Service] Delete Success';
+export const DELETE_FAILURE = '[Service] Delete Failure';
+export const FETCH = '[Service] Load';
+export const FETCH_SUCCESS = '[Service] Fetch Success';
+export const FETCH_FAILURE = '[Service] Fetch Failure';
+export const FETCH_ALL = '[Service] Fetch All';
+export const FETCH_ALL_SUCCESS = '[Service] Fetch All Success';
+export const FETCH_ALL_FAILURE = '[Service] Fetch All Failure';
+export const SELECT = '[Service] Select';
