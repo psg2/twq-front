@@ -2,12 +2,14 @@
   <v-toolbar app
              clipped-left
              fixed>
-    <v-toolbar-side-icon @click.stop="sideAction"></v-toolbar-side-icon>
+    <v-toolbar-side-icon v-if="sideAction"
+                         @click.stop="sideAction"></v-toolbar-side-icon>
     <v-toolbar-title class="pointer">
-      <router-link :to="{ name: 'Home' }"
+      <router-link :to="{ name: 'Companies List' }"
                    tag="span"
                    class="navbar-brand">
-        <strong class="green--text">CITi</strong> Board</router-link>
+        <strong>TWQ APP</strong>
+      </router-link>
     </v-toolbar-title>
     <v-spacer></v-spacer>
     <v-toolbar-items>

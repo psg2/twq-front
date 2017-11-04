@@ -12,7 +12,7 @@ export default function AuthGuard(to, from, next) {
     if (!loggedIn) {
       next();
     } else {
-      next({ name: 'Home' });
+      next({ name: 'Company List' });
     }
   }
 }

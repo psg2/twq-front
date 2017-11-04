@@ -1,4 +1,4 @@
-import userService from '@/services/user';
+// import userService from '@/services/user';
 import * as types from './types';
 
 const login = ({ commit }) =>
@@ -35,22 +35,7 @@ const logout = ({ commit }) =>
     }
   });
 
-const update = ({ commit }, { user, password }) =>
-  new Promise((resolve, reject) => {
-    userService
-      .update({ user, password })
-      .then(() => {
-        commit(types.UPDATE_SUCCESS, { user });
-        resolve();
-      })
-      .catch(error => {
-        commit(types.UPDATE_FAILURE, { error });
-        reject();
-      });
-  });
-
 export default {
   [types.LOGIN]: login,
   [types.LOGOUT]: logout,
-  [types.UPDATE]: update,
 };

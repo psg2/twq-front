@@ -5,8 +5,6 @@ import mutations from './mutations';
 const state = {
   user: null,
   loggedIn: false,
-  error: null,
-  loading: false,
 };
 
 export default {

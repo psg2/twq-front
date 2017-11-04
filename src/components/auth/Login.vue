@@ -1,21 +1,16 @@
 <template>
   <div class="application--light login-container">
-    <v-card class="text-xs-center elevation-24">
-      <img class="brand"
-           src="static/img/logo.png"
-           alt="">
+    <v-card class="elevation-24">
       <v-form @submit.prevent="submit"
               novalidate>
         <v-text-field label="Email"
-                      v-model="email"
-                      suffix="@citi.org.br">
+                      v-model="email">
         </v-text-field>
         <v-text-field label="Password"
                       v-model="password"
                       type="password">
         </v-text-field>
-        <v-btn :loading="loading"
-               type="submit">
+        <v-btn type="submit">
           Entrar
         </v-btn>
       </v-form>
@@ -26,7 +21,6 @@
 <script>
 export default {
   name: 'login',
-  props: ['loading'],
   data() {
     return {
       email: '',
@@ -36,7 +30,7 @@ export default {
   methods: {
     submit() {
       this.$emit('submit', {
-        email: `${this.email}@citi.org.br`,
+        email: this.email,
         password: this.password,
       });
     },
@@ -50,7 +44,7 @@ export default {
   justify-content: center;
   align-items: center;
   height: 100%;
-  background: #8cba4e;
+  background-color: aliceblue;
 }
 
 .card {
@@ -60,10 +54,6 @@ export default {
   height: auto;
   margin: auto;
   background: white;
-}
-
-.brand {
-  width: 150px;
 }
 </style>
 
