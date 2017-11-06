@@ -1,31 +1,31 @@
 import Vue from 'vue';
 import * as types from './types';
 
-const createSuccess = (state, { form }) => {
-  state.ids.push(form.id);
-  Vue.set(state.entities, form.id, form);
+const createSuccess = (state, { team }) => {
+  state.ids.push(team.id);
+  Vue.set(state.entities, team.id, team);
 };
 
-const updateSuccess = (state, { form }) => {
-  Vue.set(state.entities, form.id, form);
+const updateSuccess = (state, { team }) => {
+  Vue.set(state.entities, team.id, team);
 };
 
-const deleteSuccess = (state, { form }) => {
-  state.ids = state.ids.filter(id => id !== form.id);
-  Vue.delete(state.entities, form.id);
+const deleteSuccess = (state, { team }) => {
+  state.ids = state.ids.filter(id => id !== team.id);
+  Vue.delete(state.entities, team.id);
 };
 
-const fetchSuccess = (state, { form }) => {
-  if (state.ids.indexOf(form.id) === -1) {
-    state.ids.push(form.id);
+const fetchSuccess = (state, { team }) => {
+  if (state.ids.indexOf(team.id) === -1) {
+    state.ids.push(team.id);
   }
-  Vue.set(state.entities, form.id, form);
+  Vue.set(state.entities, team.id, team);
 };
 
-const fetchAllSuccess = (state, { forms }) => {
-  state.ids = forms.map(form => form.id);
-  forms.forEach(form => {
-    Vue.set(state.entities, form.id, form);
+const fetchAllSuccess = (state, { teams }) => {
+  state.ids = teams.map(team => team.id);
+  teams.forEach(team => {
+    Vue.set(state.entities, team.id, team);
   });
 };
 

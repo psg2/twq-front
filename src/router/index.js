@@ -19,8 +19,14 @@ import ReportListPage from '@/containers/report/ReportListPage';
 import ReportProfilePage from '@/containers/report/ReportProfilePage';
 import ReportComparisonPage from '@/containers/report/ReportComparisonPage';
 
+import TeamsPage from '@/containers/team/TeamsPage';
+import TeamListPage from '@/containers/team/TeamListPage';
+import CreateTeamPage from '@/containers/team/CreateTeamPage';
+import EditTeamPage from '@/containers/team/EditTeamPage';
+
 import AuthGuard from '@/router/guards/auth';
 import FormExists from '@/router/guards/formExists';
+import TeamExists from '@/router/guards/teamExists';
 import CompanyExists from '@/router/guards/companyExists';
 import ReportExists from '@/router/guards/reportExists';
 import ReportComparisonExists from '@/router/guards/reportComparisonExists';
@@ -99,6 +105,28 @@ const router = new Router({
               component: ReportComparisonPage,
               name: 'Report Comparison',
               beforeEnter: ReportComparisonExists,
+            },
+          ],
+        },
+        {
+          path: 'teams',
+          component: TeamsPage,
+          children: [
+            {
+              path: '',
+              component: TeamListPage,
+              name: 'Teams List',
+            },
+            {
+              path: 'create',
+              component: CreateTeamPage,
+              name: 'Create Team',
+            },
+            {
+              path: 'edit/:TeamId',
+              component: EditTeamPage,
+              name: 'Edit Team',
+              beforeEnter: TeamExists,
             },
           ],
         },

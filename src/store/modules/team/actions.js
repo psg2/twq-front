@@ -1,12 +1,12 @@
-import formService from '@/services/form';
+import teamService from '@/services/team';
 import * as types from './types';
 
-const create = ({ commit }, form) =>
+const create = ({ commit }, team) =>
   new Promise((resolve, reject) => {
-    formService
-      .create(form)
-      .then(newForm => {
-        commit(types.CREATE_SUCCESS, { form: newForm });
+    teamService
+      .create(team)
+      .then(newTeam => {
+        commit(types.CREATE_SUCCESS, { team: newTeam });
         resolve();
       })
       .catch(err => {
@@ -14,12 +14,12 @@ const create = ({ commit }, form) =>
       });
   });
 
-const update = ({ commit }, form) =>
+const update = ({ commit }, team) =>
   new Promise((resolve, reject) => {
-    formService
-      .update(form.id, form)
+    teamService
+      .update(team.id, team)
       .then(() => {
-        commit(types.UPDATE_SUCCESS, { form });
+        commit(types.UPDATE_SUCCESS, { team });
         resolve();
       })
       .catch(err => {
@@ -27,12 +27,12 @@ const update = ({ commit }, form) =>
       });
   });
 
-const remove = ({ commit }, form) =>
+const remove = ({ commit }, team) =>
   new Promise((resolve, reject) => {
-    formService
-      .delete(form.id)
+    teamService
+      .delete(team.id)
       .then(() => {
-        commit(types.DELETE_SUCCESS, { form });
+        commit(types.DELETE_SUCCESS, { team });
         resolve();
       })
       .catch(err => {
@@ -42,10 +42,10 @@ const remove = ({ commit }, form) =>
 
 const fetch = ({ commit }, { id }) =>
   new Promise((resolve, reject) => {
-    formService
+    teamService
       .get(id)
-      .then(form => {
-        commit(types.FETCH_SUCCESS, { form });
+      .then(team => {
+        commit(types.FETCH_SUCCESS, { team });
         resolve();
       })
       .catch(err => {
@@ -55,10 +55,10 @@ const fetch = ({ commit }, { id }) =>
 
 const fetchAll = ({ commit }) =>
   new Promise((resolve, reject) => {
-    formService
+    teamService
       .getAll()
-      .then(forms => {
-        commit(types.FETCH_ALL_SUCCESS, { forms });
+      .then(teams => {
+        commit(types.FETCH_ALL_SUCCESS, { teams });
         resolve();
       })
       .catch(err => {

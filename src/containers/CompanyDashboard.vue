@@ -62,7 +62,7 @@ export default {
         {
           title: 'Equipes',
           icon: 'group',
-          routeName: 'Login',
+          routeName: 'Teams List',
           visible: true,
         },
         {
