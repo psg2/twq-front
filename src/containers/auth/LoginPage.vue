@@ -17,7 +17,7 @@ export default {
       this.$store.commit(LOGIN);
       this.$store
         .dispatch(LOGIN, form)
-        .then(() => this.$router.push({ name: 'Company List' }));
+        .then(() => this.$router.push({ name: 'Companies List' }));
     },
   },
 };
