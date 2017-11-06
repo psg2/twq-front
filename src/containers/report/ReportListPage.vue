@@ -1,7 +1,8 @@
 <template>
   <v-card>
     <twq-report-list :reports="reports"
-                     :select="select">
+                     :select="select"
+                     @comparison="onComparison">
     </twq-report-list>
   </v-card>
 </template>
@@ -26,6 +27,12 @@ export default {
       this.$router.push({
         name: 'Report Profile',
         params: { reportId: report.id },
+      });
+    },
+    onComparison({ reportAId, reportBId }) {
+      this.$router.push({
+        name: 'Report Comparison',
+        params: { reportAId, reportBId },
       });
     },
   },

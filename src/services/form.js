@@ -65,7 +65,7 @@ const formService = {
   },
 
   get: id => {
-    const index = forms.findIndex(form => form.id === id);
+    const index = forms.findIndex(form => String(form.id) === String(id));
     return new Promise(resolve => resolve(forms[index]));
     // http.get(`/api/form/${id}`);
   },

@@ -17,9 +17,13 @@ import EditFormPage from '@/containers/form/EditFormPage';
 import ReportsPage from '@/containers/report/ReportsPage';
 import ReportListPage from '@/containers/report/ReportListPage';
 import ReportProfilePage from '@/containers/report/ReportProfilePage';
+import ReportComparisonPage from '@/containers/report/ReportComparisonPage';
 
 import AuthGuard from '@/router/guards/auth';
 import FormExists from '@/router/guards/formExists';
+import CompanyExists from '@/router/guards/companyExists';
+import ReportExists from '@/router/guards/reportExists';
+import ReportComparisonExists from '@/router/guards/reportComparisonExists';
 
 Vue.use(Router);
 
@@ -51,6 +55,7 @@ const router = new Router({
       component: CompanyDashboard,
       name: 'Company Panel',
       redirect: { name: 'Forms List' },
+      beforeEnter: CompanyExists,
       children: [
         {
           path: 'forms',
@@ -87,12 +92,14 @@ const router = new Router({
               path: ':reportId',
               component: ReportProfilePage,
               name: 'Report Profile',
+              beforeEnter: ReportExists,
             },
-            // {
-            //   path: 'edit/:formId',
-            //   component: ReportComparisonPage,
-            //   name: 'Report Comparison',
-            // },
+            {
+              path: 'comparison/:reportAId/:reportBId',
+              component: ReportComparisonPage,
+              name: 'Report Comparison',
+              beforeEnter: ReportComparisonExists,
+            },
           ],
         },
       ],

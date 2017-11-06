@@ -41,7 +41,7 @@ const companyService = {
   },
 
   get: id => {
-    const index = companies.findIndex(company => company.id === id);
+    const index = companies.findIndex(company => String(company.id) === String(id));
     return new Promise(resolve => resolve(companies[index]));
     // http.get(`/api/company/${id}`);
   },
