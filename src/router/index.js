@@ -18,8 +18,14 @@ import ReportsPage from '@/containers/report/ReportsPage';
 import ReportListPage from '@/containers/report/ReportListPage';
 import ReportProfilePage from '@/containers/report/ReportProfilePage';
 
+import TeamsPage from '@/containers/team/TeamsPage';
+import TeamListPage from '@/containers/team/TeamListPage';
+import CreateTeamPage from '@/containers/team/CreateTeamPage';
+import EditTeamPage from '@/containers/team/EditTeamPage';
+
 import AuthGuard from '@/router/guards/auth';
 import FormExists from '@/router/guards/formExists';
+import TeamExists from '@/router/guards/teamExists';
 
 Vue.use(Router);
 
@@ -93,6 +99,28 @@ const router = new Router({
             //   component: ReportComparisonPage,
             //   name: 'Report Comparison',
             // },
+          ],
+        },
+        {
+          path: 'teams',
+          component: TeamsPage,
+          children: [
+            {
+              path: '',
+              component: TeamListPage,
+              name: 'Teams List',
+            },
+            {
+              path: 'create',
+              component: CreateTeamPage,
+              name: 'Create Team',
+            },
+            {
+              path: 'edit/:TeamId',
+              component: EditTeamPage,
+              name: 'Edit Team',
+              beforeEnter: TeamExists,
+            },
           ],
         },
       ],
