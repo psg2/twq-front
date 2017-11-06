@@ -3,9 +3,10 @@
     <v-layout row
               wrap>
       <v-flex xs4
-              v-for="company in tempCompanies"
-              :key="company.name">
-        <v-card class="white--text blue-grey lighten-2 company">
+              v-for="company in companies"
+              :key="company.name"
+              @click="select(company)">
+        <v-card class="white--text blue-grey lighten-2 company pointer">
           <v-card-title primary-title>
             <div class="headline">{{company.name}}</div>
           </v-card-title>
@@ -18,17 +19,7 @@
 <script>
 export default {
   name: 'twq-company-list',
-  props: ['companies'],
-  data() {
-    return {
-      tempCompanies: [
-        { name: 'Company X' },
-        { name: 'Company Y' },
-        { name: 'Company Z' },
-        { name: 'Company Q' },
-      ],
-    };
-  },
+  props: ['companies', 'select'],
 };
 </script>
 

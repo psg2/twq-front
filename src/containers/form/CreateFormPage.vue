@@ -1,10 +1,12 @@
 <template>
-    <v-card>
-        <v-card-text>
-            <twq-form-form @submit="onSubmit">
-            </twq-form-form>
-        </v-card-text>
-    </v-card>
+  <v-card>
+    <v-card-text>
+      <twq-form-form @submit="onSubmit"
+                     :cancel="cancel"
+                     submitText="Criar">
+      </twq-form-form>
+    </v-card-text>
+  </v-card>
 </template>
 
 <script>
@@ -21,6 +23,9 @@ export default {
       this.$store
         .dispatch(actions.CREATE, form)
         .then(() => this.$router.push({ name: 'Forms List' }));
+    },
+    cancel() {
+      this.$router.push({ name: 'Forms List' });
     },
   },
 };

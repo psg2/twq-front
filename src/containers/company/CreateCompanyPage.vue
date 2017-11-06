@@ -1,7 +1,8 @@
 <template>
   <v-card>
     <v-card-text>
-      <twq-company-form @submit="onSubmit">
+      <twq-company-form @submit="onSubmit"
+                        :cancel="cancel">
       </twq-company-form>
     </v-card-text>
   </v-card>
@@ -21,6 +22,9 @@ export default {
       this.$store
         .dispatch(actions.CREATE, form)
         .then(() => this.$router.push({ name: 'Companies List' }));
+    },
+    cancel() {
+      this.$router.push({ name: 'Companies List' });
     },
   },
 };

@@ -37,9 +37,3 @@ export default {
   props: ['name', 'sideAction', 'logout'],
 };
 </script>
-
-<style lang="scss" scoped>
-nav {
-  z-index: 1001;
-}
-</style>

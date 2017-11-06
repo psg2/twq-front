@@ -1,6 +1,7 @@
 <template>
   <v-card>
-    <twq-company-list :companies="companies">
+    <twq-company-list :companies="companies"
+                      :select="select">
     </twq-company-list>
     <div>
       <v-btn color="blue-grey"
@@ -30,6 +31,14 @@ export default {
     ...mapGetters({
       companies: 'getCompanies',
     }),
+  },
+  methods: {
+    select(company) {
+      this.$router.push({
+        name: 'Company Panel',
+        params: { companyId: company.id },
+      });
+    },
   },
   created() {
     this.$store.dispatch(actions.FETCH_ALL);

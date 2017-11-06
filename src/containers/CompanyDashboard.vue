@@ -68,13 +68,13 @@ export default {
         {
           title: 'Relatórios',
           icon: 'assessment',
-          routeName: 'Login',
+          routeName: 'Reports List',
           visible: true,
         },
         {
           title: 'Empresas',
           icon: 'business',
-          routeName: 'Login',
+          routeName: 'Companies List',
           visible: true,
         },
       ];

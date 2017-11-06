@@ -12,8 +12,14 @@ import CreateCompanyPage from '@/containers/company/CreateCompanyPage';
 import FormsPage from '@/containers/form/FormsPage';
 import FormListPage from '@/containers/form/FormListPage';
 import CreateFormPage from '@/containers/form/CreateFormPage';
+import EditFormPage from '@/containers/form/EditFormPage';
+
+import ReportsPage from '@/containers/report/ReportsPage';
+import ReportListPage from '@/containers/report/ReportListPage';
+import ReportProfilePage from '@/containers/report/ReportProfilePage';
 
 import AuthGuard from '@/router/guards/auth';
+import FormExists from '@/router/guards/formExists';
 
 Vue.use(Router);
 
@@ -23,14 +29,15 @@ const router = new Router({
     {
       path: '',
       component: Dashboard,
+      redirect: { name: 'Companies List' },
       children: [
         {
-          path: '',
+          path: 'companies',
           name: 'Companies List',
           component: CompanyListPage,
         },
         {
-          path: 'add',
+          path: 'companies/add',
           name: 'Create Company',
           component: CreateCompanyPage,
         },
@@ -40,8 +47,10 @@ const router = new Router({
       },
     },
     {
-      path: '/company/:id',
+      path: '/company/:companyId',
       component: CompanyDashboard,
+      name: 'Company Panel',
+      redirect: { name: 'Forms List' },
       children: [
         {
           path: 'forms',
@@ -57,6 +66,33 @@ const router = new Router({
               component: CreateFormPage,
               name: 'Create Form',
             },
+            {
+              path: 'edit/:formId',
+              component: EditFormPage,
+              name: 'Edit Form',
+              beforeEnter: FormExists,
+            },
+          ],
+        },
+        {
+          path: 'reports',
+          component: ReportsPage,
+          children: [
+            {
+              path: '',
+              component: ReportListPage,
+              name: 'Reports List',
+            },
+            {
+              path: ':reportId',
+              component: ReportProfilePage,
+              name: 'Report Profile',
+            },
+            // {
+            //   path: 'edit/:formId',
+            //   component: ReportComparisonPage,
+            //   name: 'Report Comparison',
+            // },
           ],
         },
       ],

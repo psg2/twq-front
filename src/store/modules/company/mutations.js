@@ -1,31 +1,31 @@
 import Vue from 'vue';
 import * as types from './types';
 
-const createSuccess = (state, { project }) => {
-  state.ids.push(project.id);
-  Vue.set(state.entities, project.id, project);
+const createSuccess = (state, { company }) => {
+  state.ids.push(company.id);
+  Vue.set(state.entities, company.id, company);
 };
 
-const updateSuccess = (state, { project }) => {
-  Vue.set(state.entities, project.id, project);
+const updateSuccess = (state, { company }) => {
+  Vue.set(state.entities, company.id, company);
 };
 
-const deleteSuccess = (state, { project }) => {
-  state.ids = state.ids.filter(id => id !== project.id);
-  Vue.delete(state.entities, project.id);
+const deleteSuccess = (state, { company }) => {
+  state.ids = state.ids.filter(id => id !== company.id);
+  Vue.delete(state.entities, company.id);
 };
 
-const fetchSuccess = (state, { project }) => {
-  if (state.ids.indexOf(project.id) === -1) {
-    state.ids.push(project.id);
+const fetchSuccess = (state, { company }) => {
+  if (state.ids.indexOf(company.id) === -1) {
+    state.ids.push(company.id);
   }
-  Vue.set(state.entities, project.id, project);
+  Vue.set(state.entities, company.id, company);
 };
 
-const fetchAllSuccess = (state, { projects }) => {
-  state.ids = projects.map(project => project.id);
-  projects.forEach(project => {
-    Vue.set(state.entities, project.id, project);
+const fetchAllSuccess = (state, { companies }) => {
+  state.ids = companies.map(company => company.id);
+  companies.forEach(company => {
+    Vue.set(state.entities, company.id, company);
   });
 };
 

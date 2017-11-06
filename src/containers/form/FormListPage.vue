@@ -1,6 +1,8 @@
 <template>
   <v-card>
-    <twq-form-list :forms="forms">
+    <twq-form-list :forms="forms"
+                   :select="select"
+                   :remove="remove">
     </twq-form-list>
     <div>
       <v-btn color="blue-grey"
@@ -30,6 +32,14 @@ export default {
     ...mapGetters({
       forms: 'getForms',
     }),
+  },
+  methods: {
+    select(form) {
+      this.$router.push({ name: 'Edit Form', params: { formId: form.id } });
+    },
+    remove(form) {
+      this.$store.dispatch(actions.DELETE, form);
+    },
   },
   created() {
     this.$store.dispatch(actions.FETCH_ALL);
