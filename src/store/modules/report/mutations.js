@@ -19,8 +19,14 @@ const select = (state, { id }) => {
   state.selectedId = id;
 };
 
+const selectComparison = (state, { idA, idB }) => {
+  state.reportAId = idA;
+  state.reportBId = idB;
+};
+
 export default {
   [types.FETCH_SUCCESS]: fetchSuccess,
   [types.FETCH_ALL_SUCCESS]: fetchAllSuccess,
   [types.SELECT]: select,
+  [types.SELECT_COMPARISON]: selectComparison,
 };

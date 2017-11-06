@@ -6,6 +6,8 @@ const state = {
   ids: [],
   entities: {},
   selectedId: null,
+  reportAId: null,
+  reportBId: null,
 };
 
 export default {
