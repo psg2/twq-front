@@ -1,0 +1,16 @@
+export const CREATE = '[Company] Create';
+export const CREATE_SUCCESS = '[Company] Create Success';
+export const CREATE_FAILURE = '[Company] Create Failure';
+export const UPDATE = '[Company] Update';
+export const UPDATE_SUCCESS = '[Company] Update Success';
+export const UPDATE_FAILURE = '[Company] Update Failure';
+export const DELETE = '[Company] Delete';
+export const DELETE_SUCCESS = '[Company] Delete Success';
+export const DELETE_FAILURE = '[Company] Delete Failure';
+export const FETCH = '[Company] Load';
+export const FETCH_SUCCESS = '[Company] Fetch Success';
+export const FETCH_FAILURE = '[Company] Fetch Failure';
+export const FETCH_ALL = '[Company] Fetch All';
+export const FETCH_ALL_SUCCESS = '[Company] Fetch All Success';
+export const FETCH_ALL_FAILURE = '[Company] Fetch All Failure';
+export const SELECT = '[Company] Select';

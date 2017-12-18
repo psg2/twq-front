@@ -1,0 +1,16 @@
+export const CREATE = '[Form] Create';
+export const CREATE_SUCCESS = '[Form] Create Success';
+export const CREATE_FAILURE = '[Form] Create Failure';
+export const UPDATE = '[Form] Update';
+export const UPDATE_SUCCESS = '[Form] Update Success';
+export const UPDATE_FAILURE = '[Form] Update Failure';
+export const DELETE = '[Form] Delete';
+export const DELETE_SUCCESS = '[Form] Delete Success';
+export const DELETE_FAILURE = '[Form] Delete Failure';
+export const FETCH = '[Form] Load';
+export const FETCH_SUCCESS = '[Form] Fetch Success';
+export const FETCH_FAILURE = '[Form] Fetch Failure';
+export const FETCH_ALL = '[Form] Fetch All';
+export const FETCH_ALL_SUCCESS = '[Form] Fetch All Success';
+export const FETCH_ALL_FAILURE = '[Form] Fetch All Failure';
+export const SELECT = '[Form] Select';

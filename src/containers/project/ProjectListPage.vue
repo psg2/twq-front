@@ -29,7 +29,10 @@ export default {
   },
   methods: {
     select(project) {
-      this.$router.push({ name: 'Project Profile', params: { id: project.id } });
+      this.$router.push({
+        name: 'Project Profile',
+        params: { id: project.id },
+      });
     },
   },
   computed: {

@@ -2,52 +2,34 @@ import Vue from 'vue';
 import Router from 'vue-router';
 
 import Dashboard from '@/containers/Dashboard';
-import Home from '@/containers/Home';
+import CompanyDashboard from '@/containers/CompanyDashboard';
+// import Home from '@/containers/Home';
 import LoginPage from '@/containers/auth/LoginPage';
 
-import CategoriesPage from '@/containers/category/CategoriesPage';
-import CreateCategoryPage from '@/containers/category/CreateCategoryPage';
-import CategoryListPage from '@/containers/category/CategoryListPage';
-import EditCategoryPage from '@/containers/category/EditCategoryPage';
-import CategoryProfilePage from '@/containers/category/CategoryProfilePage';
+import CompanyListPage from '@/containers/company/CompanyListPage';
+import CreateCompanyPage from '@/containers/company/CreateCompanyPage';
 
-import PositionsPage from '@/containers/position/PositionsPage';
-import CreatePositionPage from '@/containers/position/CreatePositionPage';
-import PositionListPage from '@/containers/position/PositionListPage';
-import EditPositionPage from '@/containers/position/EditPositionPage';
-import PositionProfilePage from '@/containers/position/PositionProfilePage';
+import FormsPage from '@/containers/form/FormsPage';
+import FormListPage from '@/containers/form/FormListPage';
+import CreateFormPage from '@/containers/form/CreateFormPage';
+import EditFormPage from '@/containers/form/EditFormPage';
 
-import ProjectsPage from '@/containers/project/ProjectsPage';
-import CreateProjectPage from '@/containers/project/CreateProjectPage';
-import ProjectListPage from '@/containers/project/ProjectListPage';
-import EditProjectPage from '@/containers/project/EditProjectPage';
-import ProjectProfilePage from '@/containers/project/ProjectProfilePage';
+import ReportsPage from '@/containers/report/ReportsPage';
+import ReportListPage from '@/containers/report/ReportListPage';
+import ReportProfilePage from '@/containers/report/ReportProfilePage';
+import ReportComparisonPage from '@/containers/report/ReportComparisonPage';
 
-import ServicesPage from '@/containers/service/ServicesPage';
-import CreateServicePage from '@/containers/service/CreateServicePage';
-import ServiceListPage from '@/containers/service/ServiceListPage';
-import EditServicePage from '@/containers/service/EditServicePage';
-import ServiceProfilePage from '@/containers/service/ServiceProfilePage';
+import TeamsPage from '@/containers/team/TeamsPage';
+import TeamListPage from '@/containers/team/TeamListPage';
+import CreateTeamPage from '@/containers/team/CreateTeamPage';
+import EditTeamPage from '@/containers/team/EditTeamPage';
 
-import TasksPage from '@/containers/task/TasksPage';
-import CreateTaskPage from '@/containers/task/CreateTaskPage';
-import TaskListPage from '@/containers/task/TaskListPage';
-import EditTaskPage from '@/containers/task/EditTaskPage';
-import TaskProfilePage from '@/containers/task/TaskProfilePage';
-
-import UserProfile from '@/containers/user/UserProfile';
-
-import MembersPage from '@/containers/member/MembersPage';
-import CreateMemberPage from '@/containers/member/CreateMemberPage';
-import MemberListPage from '@/containers/member/MemberListPage';
-
-import AuthGuard from './guards/auth';
-import PositionExists from './guards/positionExists';
-import ProjectExists from './guards/projectExists';
-import ServiceExists from './guards/serviceExists';
-import TaskExists from './guards/taskExists';
-import CategoryExists from './guards/categoryExists';
-// import LoadCategories from './guards/loadCategories';
+import AuthGuard from '@/router/guards/auth';
+import FormExists from '@/router/guards/formExists';
+import TeamExists from '@/router/guards/teamExists';
+import CompanyExists from '@/router/guards/companyExists';
+import ReportExists from '@/router/guards/reportExists';
+import ReportComparisonExists from '@/router/guards/reportComparisonExists';
 
 Vue.use(Router);
 
@@ -57,181 +39,96 @@ const router = new Router({
     {
       path: '',
       component: Dashboard,
+      redirect: { name: 'Companies List' },
       children: [
         {
-          path: 'home',
-          name: 'Home',
-          component: Home,
+          path: 'companies',
+          name: 'Companies List',
+          component: CompanyListPage,
         },
         {
-          path: 'categories',
-          component: CategoriesPage,
+          path: 'companies/add',
+          name: 'Create Company',
+          component: CreateCompanyPage,
+        },
+      ],
+      meta: {
+        requireLoggedIn: true,
+      },
+    },
+    {
+      path: '/company/:companyId',
+      component: CompanyDashboard,
+      name: 'Company Panel',
+      redirect: { name: 'Forms List' },
+      beforeEnter: CompanyExists,
+      children: [
+        {
+          path: 'forms',
+          component: FormsPage,
           children: [
             {
               path: '',
-              name: 'Categories List',
-              component: CategoryListPage,
+              component: FormListPage,
+              name: 'Forms List',
             },
             {
-              path: 'add',
-              name: 'Create Category',
-              component: CreateCategoryPage,
+              path: 'create',
+              component: CreateFormPage,
+              name: 'Create Form',
             },
             {
-              path: 'edit/:id',
-              name: 'Edit Category',
-              component: EditCategoryPage,
-              beforeEnter: CategoryExists,
-            },
-            {
-              path: ':id',
-              name: 'Category Profile',
-              component: CategoryProfilePage,
-              beforeEnter: CategoryExists,
+              path: 'edit/:formId',
+              component: EditFormPage,
+              name: 'Edit Form',
+              beforeEnter: FormExists,
             },
           ],
         },
         {
-          path: 'positions',
-          component: PositionsPage,
+          path: 'reports',
+          component: ReportsPage,
           children: [
             {
               path: '',
-              name: 'Positions List',
-              component: PositionListPage,
+              component: ReportListPage,
+              name: 'Reports List',
             },
             {
-              path: 'add',
-              name: 'Create Position',
-              component: CreatePositionPage,
+              path: ':reportId',
+              component: ReportProfilePage,
+              name: 'Report Profile',
+              beforeEnter: ReportExists,
             },
             {
-              path: 'edit/:id',
-              name: 'Edit Position',
-              component: EditPositionPage,
-              beforeEnter: PositionExists,
-            },
-            {
-              path: ':id',
-              name: 'Position Profile',
-              component: PositionProfilePage,
-              beforeEnter: PositionExists,
+              path: 'comparison/:reportAId/:reportBId',
+              component: ReportComparisonPage,
+              name: 'Report Comparison',
+              beforeEnter: ReportComparisonExists,
             },
           ],
         },
         {
-          path: 'projects',
-          component: ProjectsPage,
+          path: 'teams',
+          component: TeamsPage,
           children: [
             {
               path: '',
-              name: 'Projects List',
-              component: ProjectListPage,
+              component: TeamListPage,
+              name: 'Teams List',
             },
             {
-              path: 'add',
-              name: 'Create Project',
-              component: CreateProjectPage,
+              path: 'create',
+              component: CreateTeamPage,
+              name: 'Create Team',
             },
             {
-              path: 'edit/:id',
-              name: 'Edit Project',
-              component: EditProjectPage,
-              beforeEnter: ProjectExists,
-            },
-            {
-              path: ':id',
-              name: 'Project Profile',
-              component: ProjectProfilePage,
-              beforeEnter: ProjectExists,
+              path: 'edit/:TeamId',
+              component: EditTeamPage,
+              name: 'Edit Team',
+              beforeEnter: TeamExists,
             },
           ],
-        },
-        {
-          path: 'services',
-          component: ServicesPage,
-          children: [
-            {
-              path: '',
-              name: 'Services List',
-              component: ServiceListPage,
-            },
-            {
-              path: 'add',
-              name: 'Create Service',
-              component: CreateServicePage,
-            },
-            {
-              path: 'edit/:id',
-              name: 'Edit Service',
-              component: EditServicePage,
-              beforeEnter: ServiceExists,
-            },
-            {
-              path: ':id',
-              name: 'Service Profile',
-              component: ServiceProfilePage,
-              beforeEnter: ServiceExists,
-            },
-          ],
-        },
-        {
-          path: 'tasks',
-          component: TasksPage,
-          children: [
-            {
-              path: '',
-              name: 'Tasks List',
-              component: TaskListPage,
-            },
-            {
-              path: 'add',
-              name: 'Create Task',
-              component: CreateTaskPage,
-            },
-            {
-              path: 'edit/:id',
-              name: 'Edit Task',
-              component: EditTaskPage,
-              beforeEnter: TaskExists,
-            },
-            {
-              path: ':id',
-              name: 'Task Profile',
-              component: TaskProfilePage,
-              beforeEnter: TaskExists,
-            },
-          ],
-        },
-        {
-          path: '/members',
-          component: MembersPage,
-          children: [
-            {
-              path: '',
-              name: 'Members List',
-              component: MemberListPage,
-            },
-            {
-              path: 'add',
-              name: 'Create Member',
-              component: CreateMemberPage,
-            },
-            {
-              path: 'edit/:id',
-              name: 'Edit Member',
-            },
-            {
-              path: ':id',
-              name: 'Member Profile',
-            },
-          ],
-        },
-        {
-          path: '/me',
-          name: 'UserProfile',
-          component: UserProfile,
-          // beforeEnter: LoadCategories,
         },
       ],
       meta: {

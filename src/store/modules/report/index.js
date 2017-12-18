@@ -3,8 +3,11 @@ import getters from './getters';
 import mutations from './mutations';
 
 const state = {
-  user: null,
-  loggedIn: false,
+  ids: [],
+  entities: {},
+  selectedId: null,
+  reportAId: null,
+  reportBId: null,
 };
 
 export default {

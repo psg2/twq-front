@@ -1,0 +1,16 @@
+export const CREATE = '[Team] Create';
+export const CREATE_SUCCESS = '[Team] Create Success';
+export const CREATE_FAILURE = '[Team] Create Failure';
+export const UPDATE = '[Team] Update';
+export const UPDATE_SUCCESS = '[Team] Update Success';
+export const UPDATE_FAILURE = '[Team] Update Failure';
+export const DELETE = '[Team] Delete';
+export const DELETE_SUCCESS = '[Team] Delete Success';
+export const DELETE_FAILURE = '[Team] Delete Failure';
+export const FETCH = '[Team] Load';
+export const FETCH_SUCCESS = '[Team] Fetch Success';
+export const FETCH_FAILURE = '[Team] Fetch Failure';
+export const FETCH_ALL = '[Team] Fetch All';
+export const FETCH_ALL_SUCCESS = '[Team] Fetch All Success';
+export const FETCH_ALL_FAILURE = '[Team] Fetch All Failure';
+export const SELECT = '[Team] Select';
